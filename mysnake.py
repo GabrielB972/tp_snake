@@ -6,6 +6,25 @@ screen = pg.display.set_mode((600, 600))
 clock = pg.time.Clock()
 flag=True
 
+def draw_board():
+    for i in range(30):
+        for j in range(15):
+            if i%2==0:
+                x,y=i*20,j*40
+                width,height=20,20
+                color=(255,255,255)
+                rect = pg.Rect(x,y,width,height)
+                pg.draw.rect(screen,color,rect)
+            else :
+                x,y=i*20,j*40+20 #pour les colonnes impaires on décale d'une case vesr le bas les blanches d'oùle +20
+                width,height=20,20
+                color=(255,255,255)
+                rect = pg.Rect(x,y,width,height)
+                pg.draw.rect(screen,color,rect)
+
+
+
+
 while flag==True:
     clock.tick(1)
 
@@ -14,12 +33,8 @@ while flag==True:
             flag = False
         elif event.type == pg.KEYDOWN and event.key == pg.K_q:
             flag = False 
-
-    random_color = (randint(0, 255), randint(0, 255), randint(0, 255))
-    screen.fill(random_color)
+    draw_board()
     pg.display.update()
-
- 
 pg.quit()    
 
 ## On ne peut pas quitter avec la croix car il n'est pas écrit dans le
