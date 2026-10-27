@@ -22,8 +22,17 @@ def draw_board():
                 rect = pg.Rect(x,y,width,height)
                 pg.draw.rect(screen,color,rect)
 
+def draw_snake(snake):
+    for (x,y) in snake :
+        color=(255,0,0)
+        rect= pg.Rect(x*20,y*20,20,20)
+        pg.draw.rect(screen,color,rect)
 
-
+SNAKE = [
+   (10, 15),
+   (11, 15),
+   (12, 15),
+]
 
 while flag==True:
     clock.tick(1)
@@ -34,6 +43,7 @@ while flag==True:
         elif event.type == pg.KEYDOWN and event.key == pg.K_q:
             flag = False 
     draw_board()
+    draw_snake(SNAKE)
     pg.display.update()
 pg.quit()    
 
