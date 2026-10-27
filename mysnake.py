@@ -52,6 +52,15 @@ while flag==True:
     clock.tick(2)
 
     for event in pg.event.get():
+        if event.type==pg.KEYDOWN:
+            if event.key==pg.K_UP and DIRECTION!=(0,1):
+                DIRECTION=(0,-1)
+            elif event.key==pg.K_DOWN and DIRECTION!=(0,-1):
+                DIRECTION=(0,1)
+            elif event.key==pg.K_RIGHT and DIRECTION!=(-1,0):
+                DIRECTION=(1,0)
+            elif event.key==pg.K_LEFT and DIRECTION!=(1,0):
+                DIRECTION=(-1,0)            
         if event.type == pg.QUIT:
             flag = False
         elif event.type == pg.KEYDOWN and event.key == pg.K_q:
