@@ -11,6 +11,8 @@ SNAKE = [
    (12, 15),
 ]
 DIRECTION = (1, 0)
+
+
 def draw_board():
     screen.fill((0,0,0))
     for i in range(30):
@@ -44,6 +46,11 @@ def move_snake(snake,direction):
     snake.append((x+dx,y+dy))
     return   
 
+def draw_fruit(fruit):
+    (x,y)=fruit
+    color=(0,255,0)
+    rect= pg.Rect(x*20,y*20,20,20)
+    pg.draw.rect(screen,color,rect)
 
 
 
